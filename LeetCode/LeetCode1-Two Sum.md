@@ -30,7 +30,28 @@ class Solution:
                 if nums[i] + nums[j] == target:
                     return [i, j]
 ```
+结果：[]()  
 **分析**：  
-两次循环，时间复杂度 $O(n^{2})$
+两次循环，时间复杂度 $O(n^{2})$ ，没有额外的空间复杂度。
 
-- 第二种思路
+- 第二种思路, 构建hashtable，将第二次循环（$ O(n) $）变成hashtable的查找键值对（$O(1)$）;
+hashtable的key和value分别为target-num和index of num
+
+```Python
+class Solution:
+    def twoSum(self, nums, target):
+        """
+        :type nums: List[int]
+        :type target: int
+        :rtype: List[int]
+        """
+        hashtable = {}
+        for i,num in enumerate(nums):
+            if num in hashtable:
+                return [hashtable[num], i]
+            else:
+                hashtable[target-num] = i
+```
+结果： []()
+**分析**：  
+一次循环，时间复杂度$O(n)$, 构建了hashtable，有额外的$O(n)$空间复杂度。
