@@ -30,7 +30,7 @@ class Solution:
                 if nums[i] + nums[j] == target:
                     return [i, j]
 ```
-结果：[](https://github.com/DaisyLoveU/Python-learning/blob/master/LeetCode/img/leetcode1_res_01.png)  
+结果：![res1](https://github.com/DaisyLoveU/Python-learning/blob/master/LeetCode/img/leetcode1_res_01.png)  
 **分析**：  
 两次循环，时间复杂度 $O(n^{2})$ ，没有额外的空间复杂度。
 
@@ -52,6 +52,6 @@ class Solution:
             else:
                 hashtable[target-num] = i
 ```
-结果： [](https://github.com/DaisyLoveU/Python-learning/blob/master/LeetCode/img/LeetCode1_res_2.png)  
+结果： ![res2](https://github.com/DaisyLoveU/Python-learning/blob/master/LeetCode/img/LeetCode1_res_2.png)  
 **分析**：   
 一次循环，时间复杂度$O(n)$, 构建了hashtable，有额外的$O(n)$空间复杂度。
