@@ -44,30 +44,34 @@ class Solution:
         return head
 ```
 **结果：**  
-![](./imgs/leetcode2_res_1.png)
+![](./img/leetcode2_res_1.png)
 
-
+**思路二：**  
+比较优雅的代码，
 ```Python
-class Solution(object):
+class Solution:
     def addTwoNumbers(self, l1, l2):
         """
         :type l1: ListNode
         :type l2: ListNode
         :rtype: ListNode
         """
-        carry = 0
-        head = now = ListNode(0)
-        while l1 or l2 or carry:
-            v1 = l1.val if l1 else 0
-            v2 = l1.val if l2 else 0
-            mod = (v1+v2+carry) % 10
-            carry = (v1+v2+carry) / 10
+        now = head = ListNode(0)
+        
+        temp = 0
+        while l1 or l2 or temp:
+            temp = (temp + l1.val) if l1 else temp
+            temp = (temp + l2.val) if l2 else temp
+            temp,mod = divmod(temp, 10)
             
             now.next = ListNode(mod)
             now = now.next
             
-            l1 = l1.next if l1 else 0
-            l2 = l2.next if l2 else 0
-            
-            return head.next
+            l1 = l1.next if l1 else l1
+            l2 = l2.next if l2 else l2
+        return head.next
 ```
+**结果：**
+![](./img/leetcode2_res_2.png)
+**分析：**  
+时间/空间复杂度均为$O(max(l1,l2))$
