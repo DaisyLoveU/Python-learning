@@ -29,7 +29,9 @@ class Solution(object):
                     return len(res)
             temp -= 1
 ```
-**结果：**  暴力虽能解决问题，但是用时太长，击败19%用户。有待改进。  
+**结果：**
+![](./img/leetcode3_res_1.png)
+暴力虽能解决问题，但是用时太长，击败19%用户。有待改进。  
 
 **思路二：**  
 使用hash_table存放子串及每个字符的index，start指向子串开始的index，当下一个字符与hash_table重复且start小于等于重复字符的index时，slide start → 重复字符的下一个位置。  
