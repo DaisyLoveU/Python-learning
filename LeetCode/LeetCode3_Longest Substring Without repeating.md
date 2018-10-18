@@ -30,7 +30,10 @@ class Solution(object):
             temp -= 1
 ```
 **结果：**  
+<div align=center>
 ![](./img/leetcode3_res_1.png)  
+</div>
+
 暴力虽能解决问题，但是用时太长，击败19%用户。有待改进。  
 
 **思路二：**  
