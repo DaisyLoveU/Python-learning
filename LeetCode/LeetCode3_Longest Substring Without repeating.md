@@ -29,8 +29,8 @@ class Solution(object):
                     return len(res)
             temp -= 1
 ```
-**结果：**
-![](./img/leetcode3_res_1.png)
+**结果：**  
+![](./img/leetcode3_res_1.png)  
 暴力虽能解决问题，但是用时太长，击败19%用户。有待改进。  
 
 **思路二：**  
