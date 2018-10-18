@@ -71,7 +71,7 @@ class Solution:
             l2 = l2.next if l2 else l2
         return head.next
 ```
-**结果：**
+**结果：**  
 ![](./img/leetcode2_res_2.png)
 **分析：**  
 时间/空间复杂度均为$O(max(l1,l2))$
