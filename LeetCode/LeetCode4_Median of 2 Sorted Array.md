@@ -119,8 +119,8 @@ class Solution:
 ## 分析：  
 # 可能根据电脑性能和网速波动，使得运行时间波动！！！嗯，一定是这样的
 
-
-# [大神操作](https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation)（原谅随心而欲的排版）  
+# 思路摘于leetcode missmary
+[大神操作](https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation)  （原谅随心而欲的排版）  
 **时间复杂度为$O(log(min(m,n)))$ but beats 70+**
 ```Python3
 class Solution:
