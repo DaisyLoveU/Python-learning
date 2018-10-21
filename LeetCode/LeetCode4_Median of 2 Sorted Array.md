@@ -53,7 +53,7 @@ class Solution:
 ![](./img/leetcode4_res_1.png)  
 
 **分析：**  
-额外空间$O(n)$，时间复杂度$O(n)$?
+额外空间$O(m+n)$，时间复杂度$O(m+n)$
 
 **思路二：**  
 改进思路一。一中是将两个列表完全合并，稍微改进一些，是只合并前 $(len(nums1) + (len(nums2)) / 2 + 1$ 个元素  
@@ -77,7 +77,8 @@ class Solution:
             else:
                 s.append(nums2[j])
                 j += 1
-
+        # 循环结束后，可能 nums1 与 nums2 长短差比较大，导致len(s) 可能小于 m+1
+        # 接下来要判断是哪个列表导致循环结束，
         if i == l1 and len(s) < m+1:
             for ii in range(m+1-len(s)):
                 s.append(nums2[j+ii])
@@ -93,6 +94,8 @@ class Solution:
 ```
 **结果：**    
 ![](./img/leetcode4_res_2.png)  
+**分析：**  
+空间复杂度$O((m+n)/2)$, 时间复杂度$O()$
 
 **思路三：**  
 很崩溃，找到官方的快解，速度好快呀。不知道为什么list.sort()会比归并快。  
@@ -107,6 +110,7 @@ class Solution:
         :rtype: float
         """
         num = nums1 + nums2
+        # list.sort() 的时间复杂度为 O(nlogn)
         num.sort()
         l = len(num)
         if l % 2 == 0:
@@ -117,9 +121,26 @@ class Solution:
 **结果：**  
 ![](./img/leetcode4_res_3.png)
 ## 分析：  
-# 可能根据电脑性能和网速波动，使得运行时间波动！！！嗯，一定是这样的
+空间复杂度$O(m+n)$, 时间复杂度$O(nlogn)$, 但是比大多程序得分高，原因是测试用例太少，过于简单。  
 
-# 思路摘于leetcode missmary  
+**思路四：**  
+
+以上思路均不能达到时间复杂度$O(log(m+n))$。  
+很明显，只有使用分治，才可能有 $log$ 的时间复杂度。可以将此题理解为求两个有序的 array 的第k小的数。  
+由于 array 有序，可以每趟循环可以排除 k//2 个元素。  
+假设 A = A0,A1,A2,A3,A4... B = B0,B1,B2,B3,B4...  现寻找第7小的数：  
+比较 A 和 B 中的第 7//2=3 个元素，若 A2 < B2, 则
+最多有 2 个元素(B0,B1)小于 A0，  
+最多有 3 个元素(B0,B1,A0)小于 A1，  
+最多有 4 个元素(B0,B1,A0,A1)小于 A2， 
+也就是说此时 A0,A1,A2 即 A 中前 7//2 个数不可能是第 7 小的元素。进而排除之，接下来问题转换成  
+A = A3,A4... B = B0,B1,B2,B3,B4...  现寻找第 (7 - 7//2) 小的数。**即 k 的更新公式为 k = k - k//2  **  
+
+
+
+  
+  
+# 思路五摘于leetcode missmary  
 
 
 [大神操作](https://leetcode.com/problems/median-of-two-sorted-arrays/discuss/2481/Share-my-O(log(min(mn))-solution-with-explanation "悬停显示")  
