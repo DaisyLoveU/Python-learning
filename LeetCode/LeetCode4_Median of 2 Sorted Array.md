@@ -91,7 +91,7 @@ class Solution:
         else:
             return (s[-1] + s[-2]) / 2
 ```
-**结果： **  
+**结果：**    
 ![](./img/leetcode4_res_2.png)  
 
 **思路三：**  
