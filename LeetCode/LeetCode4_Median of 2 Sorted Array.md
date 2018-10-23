@@ -153,10 +153,38 @@ class Solution:
 如果A0 < B6，这个时间可能性就很多了，比如A0 < A1 < A2 < A3 < A4 < B0 < B1，各种可能，无法排除元素，所以还是要从 k//2 开始寻找。  
   
 ```Python
+class Solution:
+    def findMedianSortedArrays(self, nums1, nums2):
+        """
+        :type nums1: List[int]
+        :type nums2: List[int]
+        :rtype: float
+        """
+        n = len(nums1) + len(nums2)
+        res = self.find_k(nums1, nums2, n//2+1)
+        if n%2: return res/1
+        return (self.find_k(nums1, nums2, n//2) + res) /2
+    
+    def find_k(self,A,B,k):
+        if len(A) == 0: return B[k-1]
+        if len(B) == 0: return A[k-1]
+        if k == 1: return min(A[0], B[0])
+#         make sure A is the smaller array
+        if len(A) > len(B): 
+            A,B = B,A
+            return self.find_k(A, B, k)
+#         in case of out of range of list due to k//2 > len(A)
+        p = min(k//2, len(A))
+        if A[p-1] < B[p-1]:
+            return self.find_k(A[p:], B, k-p)  
+        else: 
+            return self.find_k(A, B[p:], k-p)
 
+#     改进，使用列表内部index移动，而非切片
 
 ```
-
+**结果：**  
+![](./img/leetcode4_res_4.png)
 
 
 
