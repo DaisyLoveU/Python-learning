@@ -1,4 +1,4 @@
-# Get与Post的区别 ( 摘录自微信公众号WebTechGarden )  
+# Get与Post的区别 ( 选摘自微信公众号WebTechGarden )  
 
 - GET和POST是什么?  
 HTTP协议中的两种发送请求的方法。  
