@@ -30,7 +30,7 @@ class Solution:
         return res
 ```
 
-**结果：**
+**结果：**  
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/20190401220623260.png)
 
 **分析：**  
@@ -48,7 +48,8 @@ class Solution(object):
             ranges[-1][1:] = i,
         return ['->'.join(map(str, r)) for r in ranges]   
 ```
-**结果：**![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040122373064.png)
+**结果：**  
+![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040122373064.png)
 
 
 **分析：**  
