@@ -54,18 +54,18 @@ class Solution(object):
 
 **分析：**  
 关于两个逗号的使用
-> ranges += [],
-> ranges[-1][1:] = i,
+> ranges += [],  
+> ranges[-1][1:] = i,  
   
 首先看没有这两个逗号会怎样：
-> ranges += []  # ranges列表只会添加```[]```里面的值，即nothing！
-> ranges[-1][1:] = i  # 该语句会报错，因为赋值给切片的值不是```iterable!```
+> ranges += []  # ranges列表只会添加```[]```里面的值，即nothing！  
+> ranges[-1][1:] = i  # 该语句会报错，因为赋值给切片的值不是```iterable!```  
 
 
 逗号可以把等号右边的内容变成```tuple```，以上语句相当于下面的语句：
-> ranges.append([])
-> or 
-> ranges += [[]]
-> ranges[-1][1:] = [i]  # 切片的赋值，只能用```iterable```对象
+> ranges.append([])  
+> or   
+> ranges += [[]]  
+> ranges[-1][1:] = [i]  # 切片的赋值，只能用```iterable```对象  
   
 那么为什么不用普通的语句呢？因为作者比较过两者之间的速度，使用逗号的话，代码会更优雅，更快！
