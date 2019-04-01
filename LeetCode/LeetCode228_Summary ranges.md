@@ -48,11 +48,13 @@ class Solution(object):
             ranges[-1][1:] = i,
         return ['->'.join(map(str, r)) for r in ranges]   
 ```
+
 **结果：**  
 ![在这里插入图片描述](https://img-blog.csdnimg.cn/2019040122373064.png)
 
 
 **分析：**  
+时间复杂度：$O(n)$
 关于两个逗号的使用
 > ranges += [],  
 > ranges[-1][1:] = i,  
@@ -69,3 +71,18 @@ class Solution(object):
 > ranges[-1][1:] = [i]  # 切片的赋值，只能用```iterable```对象  
   
 那么为什么不用普通的语句呢？因为作者比较过两者之间的速度，使用逗号的话，代码会更优雅，更快！
+
+**思路三：**  
+更加优雅且易理解的代码！  
+```python
+class Solution:
+    def summaryRanges(self, nums):
+        ranges = r = []
+        for n in nums:
+            if repr(n-1) not in r:
+                r = []
+                ranges += r,
+            r[1:] = repr(n),
+        return list(map('->'.join, ranges))
+```
+[最终附上大神链接](https://leetcode.com/problems/summary-ranges/discuss/63193)
