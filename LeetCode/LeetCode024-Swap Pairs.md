@@ -29,6 +29,9 @@ class Solution:
         return tmp
 ```
 
+
+**结果：**  
+![../img/leetcode24_res_1.png]()  
 **思路二：迭代**  
 
 
@@ -45,3 +48,5 @@ class Solution:
             pre = a
         return dummy.next
 ```
+**结果：**  
+![../img/leetcode24_res_2.png]()
