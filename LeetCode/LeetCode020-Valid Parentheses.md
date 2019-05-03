@@ -22,3 +22,11 @@ class Solution(object):
                 return False
         return not stack
 ```
+暴力解法：  
+```python
+class Solution(object):
+    def isValid(self, s):
+        while '()' in s or '[]' in s or '{}' in s:
+	    s.replace('()', '').replace('[]', '').replace('{}', '')
+	return len(s) == 0
+```
