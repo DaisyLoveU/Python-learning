@@ -65,7 +65,7 @@ class Solution(object):
         if not nums or len(nums) == 0:
             return []
 
-        window, res = collections.windowue(), []
+        window, res = collections.deque(), []
         
         for i in range(k):
             while window:
