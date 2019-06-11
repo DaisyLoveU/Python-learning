@@ -164,8 +164,8 @@ def maxProfit(prices):
 
     mp = [[0, float('-inf')] for _ in range(len(prices))]
     for i in range(len(prices)):
-        mp[i][0] = max(mp[i-1][0], mp[i-2][1] + prices[i])
-        mp[i][1] = max(mp[i-1][1], mp[i-1][0] - prices[i])
+        mp[i][0] = max(mp[i-1][0], mp[i-1][1] + prices[i])
+        mp[i][1] = max(mp[i-1][1], mp[i-2][0] - prices[i])
     return mp[len(prices)-1][0]
 ```
 
