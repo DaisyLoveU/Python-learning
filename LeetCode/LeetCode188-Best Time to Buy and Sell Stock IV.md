@@ -23,7 +23,8 @@
   
 
 
-思路一： 暴力递归  O(k*N^2)
+思路一：[一个框架闯天涯](https://blog.csdn.net/zz_daisy/article/details/91358530)中的思路  
+时间和空间复杂度 O(kn^2)
 
 
 ```python
@@ -57,7 +58,7 @@ maxProfit(2, [1,10,2,100])
 
 铁定会超时，但是非常容易想到
   
-思路二: DP  
+思路二： 套用[股票问题的DP框架](https://blog.csdn.net/zz_daisy/article/details/91411704)
   
 1. 定义状态：`mp[i][k][j]`: 表示第 i 天可交易次数 k 以及 是否持股 可以获得的最大利润      
   
@@ -97,3 +98,15 @@ def maxProfit(k, prices):
 ```
 小结：思路二代码虽不是最优空间复杂度和时间复杂度，却是能解决股票问题的通用模版  
 ```
+
+
+```python
+maxProfit(2,[3,2,6,5,0,3])
+```
+
+
+
+
+    7
+
+
