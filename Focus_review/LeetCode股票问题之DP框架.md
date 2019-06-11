@@ -113,7 +113,7 @@ def maxProfit(prices):
 ```
 
 对于[122.买卖股票的最佳时机 II](https://leetcode-cn.com/problems/best-time-to-buy-and-sell-stock-ii/)  
-此时 K = infinity，我们认为 k-1 ≈ k，则可见 k 对状态不起作用，去掉这一维度，直接使用模版中的贪心部分，刷刷刷~ ~ ~直接出答案！
+此时 K = infinity，我们认为 k-1 ≈ k，则可见 k 对状态不起作用，去掉这一维度，刷刷刷~ ~ ~直接出答案！
 
 
 ```python
@@ -125,7 +125,7 @@ def maxProfit(prices):
     return mp[len(prices)-1][0]
 ```
 
-这题，也可以套用模版中的贪心部门，dong~ ba~ chua~ 直接出答案
+这题，也可以套用模版中的贪心部分，dong~ ba~ chua~ 直接出答案
 
 
 ```python
@@ -164,8 +164,8 @@ def maxProfit(prices):
 
     mp = [[0, float('-inf')] for _ in range(len(prices))]
     for i in range(len(prices)):
-        mp[i][0] = max(mp[i-1][0], mp[i-2][1] + prices[i])
-        mp[i][1] = max(mp[i-1][1], mp[i-1][0] - prices[i])
+        mp[i][0] = max(mp[i-1][0], mp[i-1][1] + prices[i])
+        mp[i][1] = max(mp[i-1][1], mp[i-2][0] - prices[i])
     return mp[len(prices)-1][0]
 ```
 
@@ -183,4 +183,6 @@ class Solution:
         return mp[len(prices)-1][0] 
 ```
 
-总结，leetcode第188题是最具范性的股票问题，自己根据此题推出三维 DP 状态以及状态转移方程模板，只需稍微修改即可通过其他股票问题。
+总结，leetcode第188题是最具范性的股票问题，自己根据此题推出三维 DP 状态以及状态转移方程模板，只需稍微修改即可通过其他股票问题。  
+  
+时间和空间复杂度平均 O(n^2)
